@@ -15,7 +15,10 @@ app.get('/', function (req, res, next) {
 .noProfile()
 .write('/img/resize.png', function (err) {
   if (!err) console.log('done');
-  open('https://pixabay.com/static/uploads/photo/2015/10/01/21/39/background-image-967820_960_720.jpg');
+
+  gm("/img/resize.png").display()
+
+  //open('https://pixabay.com/static/uploads/photo/2015/10/01/21/39/background-image-967820_960_720.jpg');
 
 });
 
