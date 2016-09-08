@@ -6,14 +6,6 @@
 
 <body>
 
-<!--  <% include ../partials/nav.ejs %>-->
-<form action="/upload" method="post" enctype="multipart/form-data">  
-  <label for="file">Select your image:</label>
-  <input type="file" name="file" id="file" />
-  <span class="hint">Supported files: jpg, jpeg, png.</span>
-  <button type="submit">upload</button>
-</form>
-
 
 <div class="jumbotron text-center">
   <div class="container">
@@ -22,12 +14,34 @@
     </a>
     <h1>ProQuest'16</h1>
     <p>Upload your picture to get it ProQuest'ified!</p>
-    <a type="button" name="upload" class="btn btn-lg btn-default" href="https://devcenter.heroku.com/articles/getting-started-with-nodejs"><span class="glyphicon glyphicon-flash"></span> Upload Picture</a>
-    <a type="button" class="btn btn-lg btn-primary" href="https://github.com/heroku/node-js-getting-started"><span class="glyphicon glyphicon-download"></span> Do the Magic!</a>
+    
+    <input type="file" id="upload" />
+
+      <input type="button" class="btn btn-lg btn-default"
+       onclick="document.getElementById('upload').click()" 
+       value="Upload Picture" />
+
+    <a type="file" id="upload" name="upload" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-upload"></span> Upload Picture</a>
+    
+
+ 
+    <a type="button" id="magic" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-flash"></span> Do the Magic!</a>
   </div>
 </div>
 
 
+<div id="response"></div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('#magic').click(function() {
+            
+            $.get('http://localhost:5000/magic', function(list) {
+                alert("And here we go!");
+            });
+        });
+    });
+    </script>
 
 </body>
 </html>
