@@ -8,14 +8,12 @@ app.use(express.static(__dirname + '/public'))
 
 app.get('/', function (req, res, next) {
   imageMagick('https://pixabay.com/static/uploads/photo/2015/10/01/21/39/background-image-967820_960_720.jpg')
-  .autoOrient()
-  .flip()
-  .stream('png', function (err, stdout) {
-    if (err) return next(err);
-    res.setHeader('Expires', new Date(Date.now() + 604800000));
-    res.setHeader('Content-Type', 'image/png');
-    stdout.pipe(res);
-  });
+.resize(353, 257)
+.autoOrient()
+.write(writeStream, function (err) {
+  if (!err) console.log(' hooray! ');
+});
+
 });
 
 
