@@ -1,5 +1,7 @@
 var express = require('express')
 var app = express()
+var gm = require('gm')
+  , imageMagick = gm.subClass({ imageMagick: true });
 
 app.set('port', (process.env.PORT || 5000))
 app.use(express.static(__dirname + '/public'))
