@@ -14,10 +14,8 @@ var express = require('express');
 var fs = require('fs');
 var app = express();
 
-//app.use(bodyParser.urlencoded({uploadDir:__dirname + '/images'}));
 
-//app.use(express.methodOverride());
-//app.use(app.router);
+var http = require('http');
 
 // Upload
 app.post('/upload', upload.single('theFile'), function (req, res) {
