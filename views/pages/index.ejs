@@ -10,7 +10,7 @@
 <div class="jumbotron text-center">
   <div class="container">
     <a href="/" class="lang-logo">
-      <img src="/lang-logo.png">
+      <img src="/lang-logo.jpg">
     </a>
     <h1>ProQuest'16</h1>
     <p>Upload your picture to get it ProQuest'ified!</p>
@@ -18,13 +18,15 @@
     
     
 
-    <form method="post" enctype="multipart/form-data" action="/upload" class="btn btn-lg btn-default">
-    <input type="file" name="file" class="btn btn-lg btn-default">
-    <input type="submit" value="Upload Picture" id="upload" name="upload" class="btn btn-lg btn-default"></input>
+    <form method="post" action="/upload" enctype="multipart/form-data" class="btn btn-lg btn-default">
+    <input type="file" name="theFile" class="btn btn-lg btn-default">
+    <input type="submit" value="Do the Magic!" id="upload" name="upload" class="btn btn-lg btn-primary"></input>
     </form>
 
-    <a type="button" id="magic" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-flash"></span> Do the Magicaaa!</a>
+<!-- Upload 
 
+    <a type="button" id="magic" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-flash"></span> Do the Magicaaa!</a>
+-->
   </div>
 </div>
 

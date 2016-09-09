@@ -3,14 +3,64 @@ var app = express();
 var gm = require('gm')
 , imageMagick = gm.subClass({ imageMagick: true });
 var bodyParser = require('body-parser');
+var multer  = require('multer')
+var upload = multer({ dest: 'images/' })
+var open = require('open');
 
 var path = require('path'),
     fs = require('fs');
 
+var express = require('express');
+var fs = require('fs');
+var app = express();
+
+//app.use(bodyParser.urlencoded({uploadDir:__dirname + '/images'}));
+
+//app.use(express.methodOverride());
+//app.use(app.router);
+
+// Upload
+app.post('/upload', upload.single('theFile'), function (req, res) {
+	console.log("uploading");
+		    res.set("done");
+		    var fileName = 'images/' + Date.now() + '.jpg';
+		    fs.rename(req.file.path, fileName);
+
+	var size = {width: 800, height: 800};
+	gm(fileName)
+	.resize(size.width, size.height )
+	.gravity('Center')
+	.extent(size.width, size.height)
+	.write(fileName, function (error) {
+		if (error) console.log('Error - ', error);
+		else
+		{
+
+			gm()
+			.command("composite") 
+			.resize(800, 800)
+			.in("-gravity", "center")
+			.in('images/pic1.png')
+			.in(fileName)
+			.write(fileName, function (err) {
+				if (!err) {
+					console.log(' hooray! ');
+					open(fileName);
+				}
+				else
+					console.log(err);
+			});
+		}
+	});
+
+
+});
+
+
+
 app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(__dirname + '/public'));
-app.use(bodyParser({uploadDir:__dirname + '/images'}));
 
 // views is directory for all template files
 app.set('views', __dirname + '/views');
@@ -19,6 +69,10 @@ app.set('view engine', 'ejs');
 app.get('/', function(request, response) {
 	response.render('pages/index');
 });
+
+app.get('/image.png', function (req, res) {
+    res.sendfile(path.resolve('./uploads/pic1.png'));
+}); 
 
 app.listen(app.get('port'), function() {
 	console.log('Node app is running on port', app.get('port'));
@@ -52,26 +106,6 @@ app.get('/magic', function(req, res){
 			});
 		}
 	});
-
-
-// Upload
-app.post('/upload', function (req, res) {
-	console.log("uploading");
-    var tempPath = req.files.file.path,
-        targetPath = path.resolve('./uploads/image.jpg');
-    if (path.extname(req.files.file.name).toLowerCase() === '.jpg') {
-        fs.rename(tempPath, targetPath, function(err) {
-            if (err) throw err;
-            console.log("Upload completed!");
-        });
-    } else {
-        fs.unlink(tempPath, function () {
-            if (err) throw err;
-            console.error("Only .jpg files are allowed!");
-        });
-    }
-    // ...
-});
 
 });
 
