@@ -15,17 +15,16 @@
     <h1>ProQuest'16</h1>
     <p>Upload your picture to get it ProQuest'ified!</p>
     
-    <input type="file" id="upload" />
-
-      <input type="button" class="btn btn-lg btn-default"
-       onclick="document.getElementById('upload').click()" 
-       value="Upload Picture" />
-
-    <a type="file" id="upload" name="upload" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-upload"></span> Upload Picture</a>
+    
     
 
- 
+<form method="post" enctype="multipart/form-data" action="/upload" class="btn btn-lg btn-default">
+    <input type="file" name="file" class="btn btn-lg btn-default">
+    <input type="submit" id="upload" name="upload" class="btn btn-lg btn-default"></input>
+        </form>
+
     <a type="button" id="magic" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-flash"></span> Do the Magic!</a>
+
   </div>
 </div>
 
@@ -43,5 +42,18 @@
     });
     </script>
 
+<!-- Upload -->
+<div id="response"></div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('#upload').click(function() {
+            
+            $.post('http://localhost:5000/upload', function(list) {
+                alert("Uploading");
+            });
+        });
+    });
+    </script>
 </body>
 </html>
