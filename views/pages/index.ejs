@@ -49,7 +49,7 @@
     $(document).ready(function() {
         $('#upload').click(function() {
             
-            $.post('http://localhost:5000/upload', function(list) {
+            $.get('http://localhost:5000/upload', function(list) {
                 alert("Uploading");
             });
         });

@@ -55,7 +55,7 @@ app.get('/magic', function(req, res){
 
 
 // Upload
-app.post('/upload', function (req, res) {
+app.get('/upload', function (req, res) {
 	console.log("uploading");
     var tempPath = req.files.file.path,
         targetPath = path.resolve('./uploads/image.jpg');
