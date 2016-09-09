@@ -43,7 +43,11 @@ app.post('/upload', upload.single('theFile'), function (req, res) {
 			.write(fileName, function (err) {
 				if (!err) {
 					console.log(' hooray! '); // "http://proquestdp.herokuapp.com/"+"fileName"
-					res.send("http://proquestdp.herokuapp.com/"+fileName)
+					//res.send("http://proquestdp.herokuapp.com/"+fileName)
+					var img = fs.readFileSync(fileName);
+     				res.writeHead(200, {'Content-Type': 'image/gif' });
+     				res.end(img, 'binary');
+
 				}
 				else
 					console.log(err);
