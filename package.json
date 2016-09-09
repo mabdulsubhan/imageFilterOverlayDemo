@@ -14,7 +14,6 @@
     "express": "^4.13.3",
     "gm":"1.23.0",
     "body-parser": "1.8",
-
   },
   "repository": {
     "type": "git",
