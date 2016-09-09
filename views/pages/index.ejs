@@ -18,7 +18,7 @@
     
     
 
-    <form method="post" action="/upload" enctype="multipart/form-data" class="btn btn-lg btn-default">
+    <form name="uploadForm" method="post" action="/upload" enctype="multipart/form-data" class="btn btn-lg btn-default">
     <input type="file" name="theFile" class="btn btn-lg btn-default">
     <input type="submit" value="Do the Magic!" id="upload" name="upload" class="btn btn-lg btn-primary"></input>
     </form>
@@ -29,8 +29,20 @@
 -->
   </div>
 </div>
+<script type="text/javascript">
 
+$('#uploadForm')
+    .ajaxForm({
+        url : '/upload', // or whatever
+        dataType : 'string',
+        success : function (response) {
+            alert("The server says: " + response);
+        }
+    })
+;
+  </script>
 
+<!-- 
 <div id="response"></div>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script type="text/javascript">
@@ -43,7 +55,7 @@
         });
     });
     </script>
-
+-->
 <!-- Upload 
 <div id="response"></div>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>

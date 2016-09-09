@@ -42,11 +42,8 @@ app.post('/upload', upload.single('theFile'), function (req, res) {
 			.in(fileName)
 			.write(fileName, function (err) {
 				if (!err) {
-					console.log(' hooray! ');
-var file = fs.createWriteStream("Dp.jpg");
-var request = http.get("http://proquestdp.herokuapp.com/"+"fileName", function(response) {
-  response.pipe(file);
-});
+					console.log(' hooray! '); // "http://proquestdp.herokuapp.com/"+"fileName"
+					res.send("http://proquestdp.herokuapp.com/"+fileName)
 				}
 				else
 					console.log(err);
