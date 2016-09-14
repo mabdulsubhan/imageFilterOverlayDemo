@@ -1,7 +1,7 @@
 {
-  "name": "node-js-getting-started",
+  "name": "ProQuest 16 Image Filter",
   "version": "0.2.5",
-  "description": "A sample Node.js app using Express 4",
+  "description": "A sample Node.js app for DP Overlay",
   "engines": {
     "node": "5.9.1"
   },
@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/heroku/node-js-getting-started.git"
+    "url": "git+https://github.com/mabdulsubhan/imageFilterOverlayDemo.git"
   },
   "keywords": [
     "node",
@@ -30,6 +30,6 @@
   "bugs": {
     "url": "https://github.com/heroku/node-js-getting-started/issues"
   },
-  "homepage": "https://github.com/heroku/node-js-getting-started#readme",
+  "homepage": "https://github.com/mabdulsubhan/imageFilterOverlayDemo/#readme",
   "author": ""
 }

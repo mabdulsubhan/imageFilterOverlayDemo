@@ -1,8 +1,8 @@
 {
-  "name": "Start on Heroku: Node.js",
-  "description": "A barebones Node.js app using Express 4",
-  "repository": "https://github.com/heroku/node-js-getting-started",
-  "logo": "http://node-js-sample.herokuapp.com/node.svg",
+  "name": "ProQuest DP Filter",
+  "description": "A test app for ProQuest",
+  "repository": "https://github.com/mabdulsubhan/imageFilterOverlayDemo.git",
+  "logo": "https://proquestdp.herokuapp.com/lang-logo.jpg",
   "keywords": ["node", "express", "static"],
   "image": "heroku/nodejs"
 }
